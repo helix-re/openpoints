@@ -12,41 +12,9 @@ print("je rentre dans helix dataset")
 
 @DATASETS.register_module()
 class Helix(Dataset): # class S3DIS(Dataset):
-    classes_s3dis = ['ceiling',
-               'floor',
-               'wall',
-               'beam',
-               'column',
-               'window',
-               'door',
-               'chair',
-               'table',
-               'bookcase',
-               'sofa',
-               'board',
-               'clutter']
     classes=['object','ceiling','wall','door','clutter','floor','light','stair','window']
-    classes=['object','ceiling','wall','door','clutter','floor','light','window']
-
-    num_classes = 8 # 9 # 13
-    num_per_class_old = np.array([3370714, 2856755, 4919229, 318158, 375640, 478001, 974733,
-                              650464, 791496, 88727, 1284130, 229758,0, 2272837], dtype=np.int32)
-    num_per_class = np.array([10525280,3987270,203708354,12835791,90261832,9130843,14908023,0,142971046], dtype=np.int32)
-
-    num_per_class = np.array([10525280,3987270,203708354,12835791,90261832,9130843,14908023,142971046], dtype=np.int32)
-    class2color_old = {'ceiling':     [0, 255, 0],
-                   'floor':       [0, 0, 255],
-                   'wall':        [0, 255, 255],
-                   'beam':        [255, 255, 0],
-                   'column':      [255, 0, 255],
-                   'window':      [100, 100, 255],
-                   'door':        [200, 200, 100],
-                   'table':       [170, 120, 200],
-                   'chair':       [255, 0, 0],
-                   'sofa':        [200, 100, 100],
-                   'bookcase':    [10, 200, 100],
-                   'board':       [200, 200, 200],
-                   'clutter':     [50, 50, 50]}
+    num_classes = 9
+    num_per_class = np.array([68424220, 109636976, 170714860, 19029068, 14087767, 97219579, 6693202, 2522767, 10988524], dtype=np.int32)
     class2color = {'object':     [0, 255, 0],
                    'ceiling':       [0, 0, 255],
                    'wall':        [0, 255, 255],
@@ -55,14 +23,6 @@ class Helix(Dataset): # class S3DIS(Dataset):
                    'floor':      [100, 100, 255],
                    'light':        [200, 200, 100],
                    'stair':       [170, 120, 200],
-                   'window':       [255, 0, 0]}
-    class2color = {'object':     [0, 255, 0],
-                   'ceiling':       [0, 0, 255],
-                   'wall':        [0, 255, 255],
-                   'door':        [255, 255, 0],
-                   'cluster':      [255, 0, 255],
-                   'floor':      [100, 100, 255],
-                   'light':        [200, 200, 100],
                    'window':       [255, 0, 0]}
 
     cmap = [*class2color.values()]
